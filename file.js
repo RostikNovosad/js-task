@@ -29,11 +29,9 @@ const addTask = () => {
   }
 };
 
-const enterInput = (e) => {
-  e.preventDefault();
-  if (e.keycode === "Enter") {
-    // addTask();
-    console.log("we press enter");
+const enterInput = () => {
+  if (e.key === "Enter") {
+    addTask();
   }
 };
 
