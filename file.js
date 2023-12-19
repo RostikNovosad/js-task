@@ -22,21 +22,24 @@ const addTask = () => {
     list.append(listItem);
     button.setAttribute("disabled", false);
 
-    const onNoteClick = (event) => {
+    const onNoteClick = () => {
       listItem.style.textDecoration = "line-through";
     };
     listItem.addEventListener("click", onNoteClick);
+    clearForm();
   }
 };
 
-const enterInput = () => {
+const pressEnter = (e) => {
   if (e.key === "Enter") {
-    addTask();
+    e.preventDefault();
+    if (checkbox.checked) {
+      addTask();
+    }
   }
 };
 
-input.addEventListener("keydown", enterInput);
-
+form.addEventListener("keydown", pressEnter);
 checkbox.addEventListener("click", checkStatus);
 button.addEventListener("click", addTask);
 button.addEventListener("click", clearForm);
