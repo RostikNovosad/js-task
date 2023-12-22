@@ -18,16 +18,28 @@ const clearForm = () => {
 const addTask = () => {
   if (input.value.trim() !== "") {
     const listItem = document.createElement("li");
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Видалити задачу";
+    deleteButton.classList.add("deleteBtn");
     listItem.textContent = input.value;
-    list.append(listItem);
+    listItem.appendChild(deleteButton);
+    list.prepend(listItem);
     button.setAttribute("disabled", false);
 
+    deleteButton.addEventListener("click", () => {
+      deleteTask(listItem);
+    });
+
     const onNoteClick = () => {
-      listItem.style.textDecoration = "line-through";
+      listItem.classList.toggle("line-through");
     };
     listItem.addEventListener("click", onNoteClick);
     clearForm();
   }
+};
+
+const deleteTask = (listItem) => {
+  listItem.remove();
 };
 
 const pressEnter = (e) => {
@@ -42,4 +54,4 @@ const pressEnter = (e) => {
 form.addEventListener("keydown", pressEnter);
 checkbox.addEventListener("click", checkStatus);
 button.addEventListener("click", addTask);
-button.addEventListener("click", clearForm);
+// button.addEventListener("click", clearForm);

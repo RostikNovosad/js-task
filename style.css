@@ -16,3 +16,15 @@
   background-color: gray;
   border-radius: 8px;
 }
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.deleteBtn {
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
