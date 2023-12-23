@@ -6,9 +6,7 @@ const button = document.querySelector(".btn");
 const list = document.querySelector(".list");
 
 const checkStatus = () => {
-  if (checkbox.checked) {
-    button.removeAttribute("disabled");
-  }
+  button.toggleAttribute("disabled");
 };
 
 const clearForm = () => {
@@ -52,6 +50,6 @@ const pressEnter = (e) => {
 };
 
 form.addEventListener("keydown", pressEnter);
-checkbox.addEventListener("click", checkStatus);
+checkbox.addEventListener("change", checkStatus);
 button.addEventListener("click", addTask);
-// button.addEventListener("click", clearForm);
+button.addEventListener("click", clearForm);
